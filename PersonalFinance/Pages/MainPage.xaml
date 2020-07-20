@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pm="clr-namespace:PersonalFinance.PageModels"
+             xmlns:theme="clr-namespace:ThemeGallery"
+             xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             ios:Page.PrefersHomeIndicatorAutoHidden="True"
+             Shell.BackgroundColor="White"
+             Shell.ForegroundColor="Black"
+             x:Class="PersonalFinance.Pages.MainPage">
+
+    <!--
+    Frustrations:
+    * no scroll insets
+    * no shadow control
+    * no rounded corner rectangle
+    * spacing and sizing in a grod or flex layout is guesswork
+    * sizing dependence on horizonta/vertical options is spellcasting
+    * gradient cannot be applied to progress bar color
+    * cannot round corner of progress bar
+    * finding and installing fonts is a pain
+    -->
+
+    <ContentPage.BindingContext>
+        <pm:MainPageModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Color x:Key="DarkBlue">#0091FF</Color>
+        <Color x:Key="LightBlue">#32C5FF</Color>
+        <Color x:Key="VeryLightBlue">#440596FF</Color>
+        <Color x:Key="DarkGreen">#6DD400</Color>
+        <Color x:Key="LightGreen">#44D7B6</Color>
+        <LinearGradientBrush x:Key="BlueGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="{StaticResource DarkBlue}" Offset="0.0"/>
+            <GradientStop Color="{StaticResource LightBlue}" Offset="1.0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="GreenGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="{StaticResource DarkGreen}" Offset="0.0"/>
+            <GradientStop Color="{StaticResource LightGreen}" Offset="1.0"/>
+        </LinearGradientBrush>
+
+        <GeometryGroup x:Key="RoundedBox" FillRule="Nonzero">
+            <EllipseGeometry RadiusX="8" RadiusY="8" Center="8,8" />
+            <EllipseGeometry RadiusX="8" RadiusY="8" Center="8,36" />
+            <EllipseGeometry RadiusX="8" RadiusY="8" Center="36,8" />
+            <EllipseGeometry RadiusX="8" RadiusY="8" Center="36,36" />
+            <RectangleGeometry Rect="8,0,28,44"/>
+            <RectangleGeometry Rect="0,8,44,28"/>
+        </GeometryGroup>
+
+        <Style TargetType="Frame">
+            <Setter Property="HasShadow" Value="False"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="*,Auto,15,44,0">
+            <Image
+                Grid.Column="3"
+                VerticalOptions="Center"
+                Source="https://devblogs.microsoft.com/xamarin/wp-content/uploads/sites/44/2019/03/Screen-Shot-2017-01-03-at-3.35.53-PM.png">
+                <Image.Clip>
+                    <EllipseGeometry
+                        RadiusX="22" RadiusY="22" Center="22,22" />
+                </Image.Clip>
+            </Image>
+
+            <Label
+                Grid.Column="1"
+                VerticalOptions="Center"
+                Text="{x:Static theme:IconFont.Bell}"
+                FontSize="22"
+                FontFamily="FontAwesome"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <Grid Margin="15" RowDefinitions="80,44,240,120,140,300,*" IsClippedToBounds="False">
+            <StackLayout Orientation="Vertical">
+                <Label Text="¡Buenos días!" FontFamily="Product" FontSize="18" />
+                <Label Text="David Ortinau" FontFamily="Product" FontAttributes="Bold" FontSize="32" />
+            </StackLayout>
+            <Label Grid.Row="1" VerticalOptions="Center" Text="Tus cartas" FontFamily="Product" FontAttributes="Bold" FontSize="22" />
+            <Button Grid.Row="1" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="44"
+                    WidthRequest="44" 
+                                BorderWidth="0"
+                                Background="{StaticResource BlueGradient}"
+                                TextColor="White" FontSize="24" Padding="0"
+                                Text="{x:Static theme:IconFont.Plus}"
+                                FontFamily="FontAwesome"
+                                Clip="{StaticResource RoundedBox}"/>
+
+            <ScrollView Orientation="Horizontal"
+                        Grid.Row="2" Margin="-15,0,-15,0" IsClippedToBounds="False">
+                <FlexLayout Padding="9" Margin="10,0,0,0" IsClippedToBounds="False">
+                    <FlexLayout.Resources>
+
+                        <StyleSheet>
+                            <![CDATA[
+                                Frame {
+                                    height: 190;
+                                    width: 260;
+                                    margin-right:20;
+                                }
+                                Label {
+                                    color: white;
+                                }
+                            ]]>
+                        </StyleSheet>
+                    </FlexLayout.Resources>
+
+                    <sh:Shadows
+                        CornerRadius="20"
+                        HeightRequest="190"
+                        Shades="{sh:SingleShade Offset='0, 20',
+                                    BlurRadius=40,
+                                    Opacity=0.35,
+                                    Color='#0091FF'}">
+                        <Frame CornerRadius="20" Background="{StaticResource BlueGradient}">
+                            <Grid RowDefinitions="30,*,15,20"
+                              ColumnDefinitions="*,60">
+                                <Label
+                                Grid.Row="0" Grid.Column="0"
+                                FontFamily="Norwester"
+                                Text="Bank of America"
+                                FontSize="18"
+                                VerticalOptions="End"/>
+                                <Label
+                                Grid.Row="1" Grid.Column="0"
+                                FontFamily="Norwester"
+                                FontSize="16"
+                                VerticalOptions="Center"
+                                Text="2536 1457 1477 2364"/>
+                                <Label
+                                Grid.Row="2" Grid.Column="0"
+                                FontFamily="Norwester"
+                                FontAttributes="Bold"
+                                FontSize="10"
+                                Text="Name"
+                                TextTransform="Uppercase"/>
+                                <Label
+                                Grid.Row="3" Grid.Column="0"
+                                FontFamily="Norwester"
+                                FontSize="16"
+                                Text="David Ortinau"/>
+                                <Label
+                                Grid.Row="2" Grid.Column="1"
+                                FontFamily="Norwester"
+                                FontAttributes="Bold"
+                                FontSize="10"
+                                Text="Expiry"
+                                TextTransform="Uppercase"/>
+                                <Label
+                                Grid.Row="3" Grid.Column="1"
+                                FontFamily="Norwester"
+                                FontSize="16"
+                                Text="12/2021"/>
+
+                                <Label
+                                Grid.Row="0" Grid.Column="1"
+                                FontFamily="FontAwesome"
+                                FontSize="28"
+                                VerticalOptions="End"
+                                Text="{x:Static theme:IconFont.CreditCard}"/>
+
+                            </Grid>
+
+                        </Frame>
+                    </sh:Shadows>
+                    <sh:Shadows
+                        CornerRadius="20"
+                        HeightRequest="190"
+                        Shades="{sh:SingleShade Offset='0, 20',
+                                    BlurRadius=40,
+                                    Opacity=0.35,
+                                    Color='#6DD400'}">
+                        <Frame CornerRadius="20" Background="{StaticResource GreenGradient}">
+                            <Grid RowDefinitions="30,*,15,20"
+                              ColumnDefinitions="*,60">
+                                <Label
+                                Grid.Row="0" Grid.Column="0"
+                                FontFamily="Norwester"
+                                Text="Credit Union"
+                                FontSize="18"
+                                VerticalOptions="End"/>
+                                <Label
+                                Grid.Row="1" Grid.Column="0"
+                                FontFamily="Norwester"
+                                FontSize="16"
+                                VerticalOptions="Center"
+                                Text="2536 1457 1477 2364"/>
+                                <Label
+                                Grid.Row="2" Grid.Column="0"
+                                FontFamily="Norwester"
+                                FontAttributes="Bold"
+                                FontSize="10"
+                                Text="Name"
+                                TextTransform="Uppercase"/>
+                                <Label
+                                Grid.Row="3" Grid.Column="0"
+                                FontFamily="Norwester"
+                                FontSize="16"
+                                Text="David Ortinau"/>
+                                <Label
+                                Grid.Row="2" Grid.Column="1"
+                                FontFamily="Norwester"
+                                FontAttributes="Bold"
+                                FontSize="10"
+                                Text="Expiry"
+                                TextTransform="Uppercase"/>
+                                <Label
+                                Grid.Row="3" Grid.Column="1"
+                                FontFamily="Norwester"
+                                FontSize="16"
+                                Text="12/2021"/>
+
+                                <Label
+                                Grid.Row="0" Grid.Column="1"
+                                FontFamily="FontAwesome"
+                                FontSize="28"
+                                VerticalOptions="End"
+                                Text="{x:Static theme:IconFont.CreditCard}"/>
+
+                            </Grid>
+                        </Frame>
+                    </sh:Shadows>
+                </FlexLayout>
+            </ScrollView>
+            <sh:Shadows
+                Grid.Row="3" Margin="0,-20,0,0"
+                        Shades="{sh:SingleShade Offset='0, 30',
+                                    BlurRadius=60,
+                                    Opacity=0.20,
+                                    Color='#8A959E'}">
+            <Frame CornerRadius="20">
+                <FlexLayout Direction="Column" JustifyContent="SpaceBetween">
+                    <Label Text="Saldo restante en la cuenta" FontFamily="Product" FontSize="18"/>
+                    <ProgressBar Visual="Material"
+                                 HeightRequest="14"
+                                 Progress="0.35"
+                                 BackgroundColor="#F7F7F7"
+                                 ProgressColor="{StaticResource DarkBlue}">
+                        <ProgressBar.Clip>
+                            <GeometryGroup FillRule="Nonzero">
+                                <EllipseGeometry RadiusX="7" RadiusY="7" Center="7,7" />
+                                <EllipseGeometry RadiusX="7" RadiusY="7" Center="335,7" />
+                                <RectangleGeometry Rect="7,0,328,14"/>
+
+
+                            </GeometryGroup>
+                        </ProgressBar.Clip>
+                    </ProgressBar>
+                    <Label Text="65% permanecer en la cuenta"
+                           FontFamily="Product"
+                           FontSize="10"
+                           TextColor="#999999"
+                           HorizontalOptions="End" HorizontalTextAlignment="End"/>
+                </FlexLayout>
+            </Frame>
+                </sh:Shadows>
+            <sh:Shadows
+                Grid.Row="4"
+                        Shades="{sh:SingleShade Offset='0, 30',
+                                    BlurRadius=60,
+                                    Opacity=0.20,
+                                    Color='#8A959E'}">
+            <Frame  CornerRadius="20" Margin="0,20,0,0">
+                <FlexLayout Direction="Row" Wrap="Wrap"
+                            JustifyContent="Start" AlignItems="Start"
+                            AlignContent="Start"
+                            >
+                    <FlexLayout.Resources>
+                        <StyleSheet>
+                            <![CDATA[
+                            Image {
+                                width: 44;
+                                height: 44;
+                                margin-right: 8;
+                                
+                            }
+                            ]]>
+                        </StyleSheet>
+                    </FlexLayout.Resources>
+                    <Label FlexLayout.Basis="100%" HeightRequest="40"
+                           Text="Enviar felicitaciones a"
+                           FontFamily="Product" FontSize="18"/>
+
+                    <Image
+                        Source="https://www.xamarinassemble.com/assets/img/organizer/seba.jpg"
+                        Clip="{StaticResource RoundedBox}"/>
+
+                    <Image Source="https://www.xamarinassemble.com/assets/img/organizer/nico.jpg"
+                           Clip="{StaticResource RoundedBox}"/>
+
+                    <Image Source="https://www.xamarinassemble.com/assets/img/organizer/german.jpg"
+                           Clip="{StaticResource RoundedBox}"/>
+                    <Image Source="https://www.xamarinassemble.com/assets/img/organizer/fede.jpg"
+                           Clip="{StaticResource RoundedBox}"/>
+                    <Image Source="https://www.xamarinassemble.com/assets/img/organizer/mica.jpeg"
+                           Clip="{StaticResource RoundedBox}"/>
+
+                    <Button HeightRequest="44" WidthRequest="44" VerticalOptions="Start"
+                                BorderWidth="0"
+                                BackgroundColor="{StaticResource VeryLightBlue}"
+                                TextColor="White" FontSize="24" Padding="0"
+                                Text="{x:Static theme:IconFont.Plus}"
+                                FontFamily="FontAwesome"
+                                Clip="{StaticResource RoundedBox}"/>
+
+                </FlexLayout>
+            </Frame>
+                </sh:Shadows>
+
+            <sh:Shadows
+                Grid.Row="5" Margin="0,20,0,0" 
+                        Shades="{sh:SingleShade Offset='0, 30',
+                                    BlurRadius=60,
+                                    Opacity=0.20,
+                                    Color='#8A959E'}">
+            <Frame  CornerRadius="20">
+                <!--<Frame.Background>
+                    <RadialGradientBrush Center="60,60">
+                        <GradientStop Color="#008A959E" Offset="1.2"/>
+                        <GradientStop Color="#338A959E" Offset="0.0"/>
+                    </RadialGradientBrush>
+                </Frame.Background>-->
+                <FlexLayout Direction="Row" Wrap="Wrap"
+                            JustifyContent="Start" AlignItems="Start"
+                            AlignContent="Start"
+                            >
+                    <FlexLayout.Resources>
+                        <StyleSheet>
+                            <![CDATA[
+                            Frame {
+                                margin-right: 12;
+                            }
+                            ]]>
+                        </StyleSheet>
+                    </FlexLayout.Resources>
+                    <Label FlexLayout.Basis="100%" HeightRequest="40"
+                           Text="Categorías"
+                           FontFamily="Product" FontSize="18"/>
+                    <sh:Shadows
+                        Shades="{sh:SingleShade Offset='0, 30',
+                                    BlurRadius=60,
+                                    Opacity=0.20,
+                                    Color='#8A959E'}">
+                        <Frame WidthRequest="48" HeightRequest="48">
+                            <Grid RowDefinitions="2*,1*">
+                                <Label
+                                    FontFamily="FontAwesome"
+                                    FontSize="28"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Text="{x:Static theme:IconFont.ShoppingBag}"/>
+                                <Label Grid.Row="1"
+                                    Text="Shopping"
+                                       FontSize="10"
+                                       FontFamily="Product"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"/>
+                            </Grid>
+                        </Frame>
+                    </sh:Shadows>
+                    <sh:Shadows
+                        Shades="{sh:SingleShade Offset='0, 30',
+                                    BlurRadius=60,
+                                    Opacity=0.20,
+                                    Color='#8A959E'}">
+                        <Frame WidthRequest="48" HeightRequest="48">
+                            <Grid RowDefinitions="2*,1*">
+                                <Label
+                                FontFamily="FontAwesome"
+                                FontSize="32"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Text="{x:Static theme:IconFont.Medkit}"/>
+                                <Label Grid.Row="1"
+                                Text="Medical"
+                                   FontSize="10"
+                                   FontFamily="Product"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            </Grid>
+                        </Frame>
+                    </sh:Shadows>
+                    <sh:Shadows
+                        Shades="{sh:SingleShade Offset='0, 30',
+                                    BlurRadius=60,
+                                    Opacity=0.20,
+                                    Color='#8A959E'}">
+                        <Frame WidthRequest="48" HeightRequest="48">
+                            <Grid RowDefinitions="2*,1*">
+                                <Label
+                                FontFamily="FontAwesome"
+                                FontSize="32"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Text="{x:Static theme:IconFont.School}"/>
+                                <Label Grid.Row="1"
+                                Text="Shopping"
+                                   FontSize="10"
+                                   FontFamily="Education"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            </Grid>
+                        </Frame>
+                    </sh:Shadows>
+                </FlexLayout>
+            </Frame>
+                </sh:Shadows>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.3995" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.8.0.3995" />
+    <PackageReference Include="Sharpnado.Shadows" Version="1.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Common\Fonts\fa-solid-900.ttf" />
+    <None Remove="Common\Fonts\RobotoMono-Regular.ttf" />
+    <None Remove="Common\Fonts\ProductSans-Regular.ttf" />
+    <None Remove="Common\Fonts\norwester.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common\Fonts\fa-solid-900.ttf" />
+    <EmbeddedResource Include="Common\Fonts\RobotoMono-Regular.ttf" />
+    <EmbeddedResource Include="Common\Fonts\ProductSans-Regular.ttf" />
+    <EmbeddedResource Include="Common\Fonts\norwester.otf" />
+  </ItemGroup>
+</Project>
