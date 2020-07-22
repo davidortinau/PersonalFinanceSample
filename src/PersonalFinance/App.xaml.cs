@@ -13,10 +13,12 @@ namespace PersonalFinance
                 "AppTheme_Experimental",
                 "Markup_Experimental",
                 "Shapes_Experimental",
-                "Brush_Experimental"
-
+                "Brush_Experimental",
+                "Shell_UWP_Experimental"
             });
-            
+
+            App.Current.UserAppTheme = OSAppTheme.Light;
+
             InitializeComponent();
 
             MainPage = new AppShell();

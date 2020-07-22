@@ -9,6 +9,7 @@
              ios:Page.PrefersHomeIndicatorAutoHidden="True"
              Shell.BackgroundColor="White"
              Shell.ForegroundColor="Black"
+             Shell.NavBarHasShadow="False" 
              x:Class="PersonalFinance.Pages.MainPage">
 
     <!--
@@ -53,6 +54,8 @@
 
         <Style TargetType="Frame">
             <Setter Property="HasShadow" Value="False"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="BackgroundColor" Value="White"/>
         </Style>
     </ContentPage.Resources>
 
@@ -78,7 +81,7 @@
     </Shell.TitleView>
 
     <ScrollView>
-        <Grid Margin="15" RowDefinitions="80,44,240,120,140,300,*" IsClippedToBounds="False">
+        <Grid Padding="15" RowDefinitions="80,44,240,120,140,300,*" IsClippedToBounds="False">
             <StackLayout Orientation="Vertical">
                 <Label Text="¡Buenos días!" FontFamily="Product" FontSize="18" />
                 <Label Text="David Ortinau" FontFamily="Product" FontAttributes="Bold" FontSize="32" />
@@ -86,8 +89,8 @@
             <Label Grid.Row="1" VerticalOptions="Center" Text="Tus cartas" FontFamily="Product" FontAttributes="Bold" FontSize="22" />
             <Button Grid.Row="1" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="44"
                     WidthRequest="44" 
+                    Background="{StaticResource BlueGradient}"
                                 BorderWidth="0"
-                                Background="{StaticResource BlueGradient}"
                                 TextColor="White" FontSize="24" Padding="0"
                                 Text="{x:Static theme:IconFont.Plus}"
                                 FontFamily="FontAwesome"
@@ -119,7 +122,7 @@
                                     BlurRadius=40,
                                     Opacity=0.35,
                                     Color='#0091FF'}">
-                        <Frame CornerRadius="20" Background="{StaticResource BlueGradient}">
+                        <Frame Background="{StaticResource BlueGradient}">
                             <Grid RowDefinitions="30,*,15,20"
                               ColumnDefinitions="*,60">
                                 <Label
@@ -177,7 +180,7 @@
                                     BlurRadius=40,
                                     Opacity=0.35,
                                     Color='#6DD400'}">
-                        <Frame CornerRadius="20" Background="{StaticResource GreenGradient}">
+                        <Frame Background="{StaticResource GreenGradient}">
                             <Grid RowDefinitions="30,*,15,20"
                               ColumnDefinitions="*,60">
                                 <Label
@@ -235,7 +238,7 @@
                                     BlurRadius=60,
                                     Opacity=0.20,
                                     Color='#8A959E'}">
-            <Frame CornerRadius="20">
+            <Frame>
                 <FlexLayout Direction="Column" JustifyContent="SpaceBetween">
                     <Label Text="Saldo restante en la cuenta" FontFamily="Product" FontSize="18"/>
                     <ProgressBar Visual="Material"
@@ -267,7 +270,7 @@
                                     BlurRadius=60,
                                     Opacity=0.20,
                                     Color='#8A959E'}">
-            <Frame  CornerRadius="20" Margin="0,20,0,0">
+            <Frame Margin="0,20,0,0">
                 <FlexLayout Direction="Row" Wrap="Wrap"
                             JustifyContent="Start" AlignItems="Start"
                             AlignContent="Start"
@@ -320,13 +323,7 @@
                                     BlurRadius=60,
                                     Opacity=0.20,
                                     Color='#8A959E'}">
-            <Frame  CornerRadius="20">
-                <!--<Frame.Background>
-                    <RadialGradientBrush Center="60,60">
-                        <GradientStop Color="#008A959E" Offset="1.2"/>
-                        <GradientStop Color="#338A959E" Offset="0.0"/>
-                    </RadialGradientBrush>
-                </Frame.Background>-->
+            <Frame>
                 <FlexLayout Direction="Row" Wrap="Wrap"
                             JustifyContent="Start" AlignItems="Start"
                             AlignContent="Start"
