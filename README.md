@@ -1,6 +1,6 @@
 # Personal Finance Sample
 
-This sample layout is exploring new Gradient Brush and Shapes features from Xamarin.Forms 4.8 using a unreleased build.
+This sample layout is exploring new Gradient Brush and Shapes features from [Xamarin.Forms 4.8-pre2](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/release-notes/4.8/4.8.0-pre2).
 
 ![Android](screenshots/android.png)
 
