@@ -43,15 +43,6 @@
             <GradientStop Color="{StaticResource LightGreen}" Offset="1.0"/>
         </LinearGradientBrush>
 
-        <GeometryGroup x:Key="RoundedBox" FillRule="Nonzero">
-            <EllipseGeometry RadiusX="8" RadiusY="8" Center="8,8" />
-            <EllipseGeometry RadiusX="8" RadiusY="8" Center="8,36" />
-            <EllipseGeometry RadiusX="8" RadiusY="8" Center="36,8" />
-            <EllipseGeometry RadiusX="8" RadiusY="8" Center="36,36" />
-            <RectangleGeometry Rect="8,0,28,44"/>
-            <RectangleGeometry Rect="0,8,44,28"/>
-        </GeometryGroup>
-
         <Style TargetType="Frame">
             <Setter Property="HasShadow" Value="False"/>
             <Setter Property="CornerRadius" Value="20"/>
@@ -93,8 +84,7 @@
                                 BorderWidth="0"
                                 TextColor="White" FontSize="24" Padding="0"
                                 Text="{x:Static theme:IconFont.Plus}"
-                                FontFamily="FontAwesome"
-                                Clip="{StaticResource RoundedBox}"/>
+                                FontFamily="FontAwesome"/>
 
             <ScrollView Orientation="Horizontal"
                         Grid.Row="2" Margin="-15,0,-15,0" IsClippedToBounds="False">
@@ -238,46 +228,46 @@
                                     BlurRadius=60,
                                     Opacity=0.20,
                                     Color='#8A959E'}">
-            <Frame>
-                <FlexLayout Direction="Column" JustifyContent="SpaceBetween">
-                    <Label Text="Saldo restante en la cuenta" FontFamily="Product" FontSize="18"/>
-                    <ProgressBar Visual="Material"
+                <Frame>
+                    <FlexLayout Direction="Column" JustifyContent="SpaceBetween">
+                        <Label Text="Saldo restante en la cuenta" FontFamily="Product" FontSize="18"/>
+                        <ProgressBar Visual="Material"
                                  HeightRequest="14"
                                  Progress="0.35"
                                  BackgroundColor="#F7F7F7"
                                  ProgressColor="{StaticResource DarkBlue}">
-                        <ProgressBar.Clip>
-                            <GeometryGroup FillRule="Nonzero">
-                                <EllipseGeometry RadiusX="7" RadiusY="7" Center="7,7" />
-                                <EllipseGeometry RadiusX="7" RadiusY="7" Center="335,7" />
-                                <RectangleGeometry Rect="7,0,328,14"/>
+                            <!--<ProgressBar.Clip>
+                                <GeometryGroup FillRule="Nonzero">
+                                    <EllipseGeometry RadiusX="7" RadiusY="7" Center="7,7" />
+                                    <EllipseGeometry RadiusX="7" RadiusY="7" Center="335,7" />
+                                    <RectangleGeometry Rect="7,0,328,14"/>
 
 
-                            </GeometryGroup>
-                        </ProgressBar.Clip>
-                    </ProgressBar>
-                    <Label Text="65% permanecer en la cuenta"
+                                </GeometryGroup>
+                            </ProgressBar.Clip>-->
+                        </ProgressBar>
+                        <Label Text="65% permanecer en la cuenta"
                            FontFamily="Product"
                            FontSize="10"
                            TextColor="#999999"
                            HorizontalOptions="End" HorizontalTextAlignment="End"/>
-                </FlexLayout>
-            </Frame>
-                </sh:Shadows>
+                    </FlexLayout>
+                </Frame>
+            </sh:Shadows>
             <sh:Shadows
                 Grid.Row="4"
                         Shades="{sh:SingleShade Offset='0, 30',
                                     BlurRadius=60,
                                     Opacity=0.20,
                                     Color='#8A959E'}">
-            <Frame Margin="0,20,0,0">
-                <FlexLayout Direction="Row" Wrap="Wrap"
+                <Frame Margin="0,20,0,0">
+                    <FlexLayout Direction="Row" Wrap="Wrap"
                             JustifyContent="Start" AlignItems="Start"
                             AlignContent="Start"
                             >
-                    <FlexLayout.Resources>
-                        <StyleSheet>
-                            <![CDATA[
+                        <FlexLayout.Resources>
+                            <StyleSheet>
+                                <![CDATA[
                             Image {
                                 width: 44;
                                 height: 44;
@@ -285,37 +275,37 @@
                                 
                             }
                             ]]>
-                        </StyleSheet>
-                    </FlexLayout.Resources>
-                    <Label FlexLayout.Basis="100%" HeightRequest="40"
+                            </StyleSheet>
+                        </FlexLayout.Resources>
+                        <Label FlexLayout.Basis="100%" HeightRequest="40"
                            Text="Enviar felicitaciones a"
                            FontFamily="Product" FontSize="18"/>
 
-                    <Image
+                        <Image
                         Source="https://www.xamarinassemble.com/assets/img/organizer/seba.jpg"
-                        Clip="{StaticResource RoundedBox}"/>
+                        />
 
-                    <Image Source="https://www.xamarinassemble.com/assets/img/organizer/nico.jpg"
-                           Clip="{StaticResource RoundedBox}"/>
+                        <Image Source="https://www.xamarinassemble.com/assets/img/organizer/nico.jpg"
+                        />
 
-                    <Image Source="https://www.xamarinassemble.com/assets/img/organizer/german.jpg"
-                           Clip="{StaticResource RoundedBox}"/>
-                    <Image Source="https://www.xamarinassemble.com/assets/img/organizer/fede.jpg"
-                           Clip="{StaticResource RoundedBox}"/>
-                    <Image Source="https://www.xamarinassemble.com/assets/img/organizer/mica.jpeg"
-                           Clip="{StaticResource RoundedBox}"/>
+                        <Image Source="https://www.xamarinassemble.com/assets/img/organizer/german.jpg"
+                        />
+                        <Image Source="https://www.xamarinassemble.com/assets/img/organizer/fede.jpg"
+                        />
+                        <Image Source="https://www.xamarinassemble.com/assets/img/organizer/mica.jpeg"
+                        />
 
-                    <Button HeightRequest="44" WidthRequest="44" VerticalOptions="Start"
+                        <Button HeightRequest="44" WidthRequest="44" VerticalOptions="Start"
                                 BorderWidth="0"
                                 BackgroundColor="{StaticResource VeryLightBlue}"
                                 TextColor="White" FontSize="24" Padding="0"
                                 Text="{x:Static theme:IconFont.Plus}"
                                 FontFamily="FontAwesome"
-                                Clip="{StaticResource RoundedBox}"/>
+                                />
 
-                </FlexLayout>
-            </Frame>
-                </sh:Shadows>
+                    </FlexLayout>
+                </Frame>
+            </sh:Shadows>
 
             <sh:Shadows
                 Grid.Row="5" Margin="0,20,0,0" 
@@ -323,92 +313,92 @@
                                     BlurRadius=60,
                                     Opacity=0.20,
                                     Color='#8A959E'}">
-            <Frame>
-                <FlexLayout Direction="Row" Wrap="Wrap"
+                <Frame>
+                    <FlexLayout Direction="Row" Wrap="Wrap"
                             JustifyContent="Start" AlignItems="Start"
                             AlignContent="Start"
                             >
-                    <FlexLayout.Resources>
-                        <StyleSheet>
-                            <![CDATA[
+                        <FlexLayout.Resources>
+                            <StyleSheet>
+                                <![CDATA[
                             Frame {
                                 margin-right: 12;
                             }
                             ]]>
-                        </StyleSheet>
-                    </FlexLayout.Resources>
-                    <Label FlexLayout.Basis="100%" HeightRequest="40"
+                            </StyleSheet>
+                        </FlexLayout.Resources>
+                        <Label FlexLayout.Basis="100%" HeightRequest="40"
                            Text="Categorías"
                            FontFamily="Product" FontSize="18"/>
-                    <sh:Shadows
+                        <sh:Shadows
                         Shades="{sh:SingleShade Offset='0, 30',
                                     BlurRadius=60,
                                     Opacity=0.20,
                                     Color='#8A959E'}">
-                        <Frame WidthRequest="48" HeightRequest="48">
-                            <Grid RowDefinitions="2*,1*">
-                                <Label
+                            <Frame WidthRequest="48" HeightRequest="48">
+                                <Grid RowDefinitions="2*,1*">
+                                    <Label
                                     FontFamily="FontAwesome"
                                     FontSize="28"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center"
                                     Text="{x:Static theme:IconFont.ShoppingBag}"/>
-                                <Label Grid.Row="1"
+                                    <Label Grid.Row="1"
                                     Text="Shopping"
                                        FontSize="10"
                                        FontFamily="Product"
                                        VerticalTextAlignment="Center"
                                        HorizontalTextAlignment="Center"/>
-                            </Grid>
-                        </Frame>
-                    </sh:Shadows>
-                    <sh:Shadows
+                                </Grid>
+                            </Frame>
+                        </sh:Shadows>
+                        <sh:Shadows
                         Shades="{sh:SingleShade Offset='0, 30',
                                     BlurRadius=60,
                                     Opacity=0.20,
                                     Color='#8A959E'}">
-                        <Frame WidthRequest="48" HeightRequest="48">
-                            <Grid RowDefinitions="2*,1*">
-                                <Label
+                            <Frame WidthRequest="48" HeightRequest="48">
+                                <Grid RowDefinitions="2*,1*">
+                                    <Label
                                 FontFamily="FontAwesome"
                                 FontSize="32"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
                                 Text="{x:Static theme:IconFont.Medkit}"/>
-                                <Label Grid.Row="1"
+                                    <Label Grid.Row="1"
                                 Text="Medical"
                                    FontSize="10"
                                    FontFamily="Product"
                                    VerticalTextAlignment="Center"
                                    HorizontalTextAlignment="Center"/>
-                            </Grid>
-                        </Frame>
-                    </sh:Shadows>
-                    <sh:Shadows
+                                </Grid>
+                            </Frame>
+                        </sh:Shadows>
+                        <sh:Shadows
                         Shades="{sh:SingleShade Offset='0, 30',
                                     BlurRadius=60,
                                     Opacity=0.20,
                                     Color='#8A959E'}">
-                        <Frame WidthRequest="48" HeightRequest="48">
-                            <Grid RowDefinitions="2*,1*">
-                                <Label
+                            <Frame WidthRequest="48" HeightRequest="48">
+                                <Grid RowDefinitions="2*,1*">
+                                    <Label
                                 FontFamily="FontAwesome"
                                 FontSize="32"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
                                 Text="{x:Static theme:IconFont.School}"/>
-                                <Label Grid.Row="1"
+                                    <Label Grid.Row="1"
                                 Text="Shopping"
                                    FontSize="10"
                                    FontFamily="Education"
                                    VerticalTextAlignment="Center"
                                    HorizontalTextAlignment="Center"/>
-                            </Grid>
-                        </Frame>
-                    </sh:Shadows>
-                </FlexLayout>
-            </Frame>
-                </sh:Shadows>
+                                </Grid>
+                            </Frame>
+                        </sh:Shadows>
+                    </FlexLayout>
+                </Frame>
+            </sh:Shadows>
         </Grid>
     </ScrollView>
 </ContentPage>
