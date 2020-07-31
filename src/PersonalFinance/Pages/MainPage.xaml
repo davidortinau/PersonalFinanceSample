@@ -81,10 +81,13 @@
             <Button Grid.Row="1" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="44"
                     WidthRequest="44" 
                     Background="{StaticResource BlueGradient}"
-                                BorderWidth="0"
-                                TextColor="White" FontSize="24" Padding="0"
-                                Text="{x:Static theme:IconFont.Plus}"
-                                FontFamily="FontAwesome"/>
+                    BorderWidth="0"
+                    TextColor="White"
+                    FontSize="24"
+                    Padding="0"
+                    CornerRadius="8"
+                    Text="{x:Static theme:IconFont.Plus}"
+                    FontFamily="FontAwesome"/>
 
             <ScrollView Orientation="Horizontal"
                         Grid.Row="2" Margin="-15,0,-15,0" IsClippedToBounds="False">
@@ -260,10 +263,11 @@
                                     BlurRadius=60,
                                     Opacity=0.20,
                                     Color='#8A959E'}">
-                <Frame Margin="0,20,0,0">
+                <Frame Margin="0,20,0,0" IsClippedToBounds="False">
                     <FlexLayout Direction="Row" Wrap="Wrap"
                             JustifyContent="Start" AlignItems="Start"
                             AlignContent="Start"
+                                IsClippedToBounds="False"
                             >
                         <FlexLayout.Resources>
                             <StyleSheet>
@@ -297,6 +301,8 @@
 
                         <Button HeightRequest="44" WidthRequest="44" VerticalOptions="Start"
                                 BorderWidth="0"
+                                CornerRadius="8"
+                                
                                 BackgroundColor="{StaticResource VeryLightBlue}"
                                 TextColor="White" FontSize="24" Padding="0"
                                 Text="{x:Static theme:IconFont.Plus}"
