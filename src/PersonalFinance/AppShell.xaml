@@ -2,10 +2,20 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:pages="clr-namespace:PersonalFinance.Pages"
+       xmlns:theme="clr-namespace:ThemeGallery"
        Title="PersonalFinance"
        x:Class="PersonalFinance.AppShell">
 
     <ShellContent Route="Home" 
         ContentTemplate="{DataTemplate pages:MainPage}" />
+
+    <MenuItem Clicked="MenuItem_Clicked">
+        <MenuItem.IconImageSource>
+            <FontImageSource
+                FontFamily="FontAwesome"
+                Glyph="{x:Static theme:IconFont.Lightbulb}"
+                Size="18"/>
+        </MenuItem.IconImageSource>
+    </MenuItem>
 
 </Shell>

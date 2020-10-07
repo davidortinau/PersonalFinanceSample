@@ -14,5 +14,12 @@ namespace PersonalFinance.Pages
         {
             InitializeComponent();
         }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            App.Current.UserAppTheme = (App.Current.UserAppTheme == OSAppTheme.Light)
+                ? OSAppTheme.Dark
+                : OSAppTheme.Light;
+        }
     }
 }

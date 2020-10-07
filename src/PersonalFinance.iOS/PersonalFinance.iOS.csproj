@@ -123,10 +123,10 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.1.1502-nightly" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.1.1523-nightly" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms.Visual.Material">
-      <Version>5.0.1.1502-nightly</Version>
+      <Version>5.0.1.1523-nightly</Version>
     </PackageReference>
     <PackageReference Include="Sharpnado.Shadows">
       <Version>1.1.1</Version>

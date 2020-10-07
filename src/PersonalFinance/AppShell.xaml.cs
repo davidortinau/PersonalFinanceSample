@@ -10,5 +10,12 @@ namespace PersonalFinance
         {
             InitializeComponent();
         }
+
+        private void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            App.Current.UserAppTheme = (App.Current.UserAppTheme == OSAppTheme.Light)
+                ? OSAppTheme.Dark
+                : OSAppTheme.Light;
+        }
     }
 }
