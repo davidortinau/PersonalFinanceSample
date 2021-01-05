@@ -31,6 +31,13 @@
             <GradientStop Color="{StaticResource LightGreen}" Offset="1.0" />
         </LinearGradientBrush>
 
+        <LinearGradientBrush x:Key="NewBlueGradient" StartPoint="0,0"
+                                                     EndPoint="1,1">
+            <GradientStop Color="Aqua" Offset="0.1"/>
+            <GradientStop Color="Blue" Offset="1.0"/>
+
+        </LinearGradientBrush>
+
         <Style TargetType="Frame">
             <Setter Property="HasShadow" Value="False" />
             <Setter Property="CornerRadius" Value="20" />
@@ -42,9 +49,12 @@
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto,15,44,0">
-            <Image Grid.Column="3" VerticalOptions="Center" Source="https://devblogs.microsoft.com/xamarin/wp-content/uploads/sites/44/2019/03/Screen-Shot-2017-01-03-at-3.35.53-PM.png">
+            <!-- make this a circle image -->
+            <Image Grid.Column="3"
+                   VerticalOptions="Center"
+                   Source="https://devblogs.microsoft.com/xamarin/wp-content/uploads/sites/44/2019/03/Screen-Shot-2017-01-03-at-3.35.53-PM.png">
                 <Image.Clip>
-                    <EllipseGeometry RadiusX="22" RadiusY="22" Center="22,22" />
+                    <EllipseGeometry RadiusX="22" RadiusY="22" Center="22,22"/>
                 </Image.Clip>
             </Image>
 
@@ -67,7 +77,8 @@
             </StackLayout>
 
             <Button Grid.Row="1" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="44" WidthRequest="44" 
-                    Background="{StaticResource BlueGradient}" BorderWidth="0" TextColor="White" FontSize="24" 
+                    BorderWidth="0" TextColor="White" FontSize="24"
+                    Background="{StaticResource NewBlueGradient}"
                     Visual="Default"
                     Padding="0" CornerRadius="{OnPlatform Android=8, Default=8}" Text="{x:Static theme:IconFont.Plus}" 
                     FontFamily="FontAwesome" />
@@ -95,8 +106,8 @@
                     <sh:Shadows CornerRadius="20" HeightRequest="190" Shades="{sh:SingleShade Offset='0, 20',
                                     BlurRadius=40,
                                     Opacity=0.35,
-                                    Color='#0091FF'}">
-                        <Frame Background="{StaticResource BlueGradient}">
+                                    Color='#000000'}">
+                        <Frame Background="{StaticResource NewBlueGradient}">
                             <Grid RowDefinitions="30,*,15,20" ColumnDefinitions="*,60">
                                 <Label Grid.Row="0" Grid.Column="0" FontFamily="Norwester" Text="Bank of America" FontSize="18" VerticalOptions="End" />
                                 <Label Grid.Row="1" Grid.Column="0" FontFamily="Norwester" FontSize="16" VerticalOptions="Center" Text="2536 1457 1477 2364" />

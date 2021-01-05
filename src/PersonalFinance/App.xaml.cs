@@ -11,10 +11,6 @@ namespace PersonalFinance
         public App ()
         {
             Device.SetFlags(new string[] {
-                "AppTheme_Experimental",
-                "Markup_Experimental",
-                "Shapes_Experimental",
-                "Brush_Experimental",
                 "Shell_UWP_Experimental"
             });
 
